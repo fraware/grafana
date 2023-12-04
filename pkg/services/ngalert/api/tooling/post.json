@@ -512,6 +512,9 @@
     },
     "username": {
      "type": "string"
+    },
+    "username_file": {
+     "type": "string"
     }
    },
    "title": "BasicAuth contains basic HTTP authentication credentials.",
@@ -607,6 +610,9 @@
     "Error": {
      "description": "Error is a property to be set if the corresponding DataQuery has an error.",
      "type": "string"
+    },
+    "ErrorSource": {
+     "$ref": "#/definitions/ErrorSource"
     },
     "Frames": {
      "$ref": "#/definitions/Frames"
@@ -812,6 +818,10 @@
     }
    },
    "type": "object"
+  },
+  "ErrorSource": {
+   "description": "ErrorSource type defines the source of the error",
+   "type": "string"
   },
   "ErrorType": {
    "title": "ErrorType models the different API error types.",
@@ -1849,7 +1859,7 @@
   },
   "MatchRegexps": {
    "additionalProperties": {
-    "$ref": "#/definitions/Regexp"
+    "type": "string"
    },
    "title": "MatchRegexps represents a map of Regexp.",
    "type": "object"
@@ -2971,11 +2981,6 @@
     }
    },
    "title": "ReceiverExport is the provisioned file export of alerting.ReceiverV1.",
-   "type": "object"
-  },
-  "Regexp": {
-   "description": "A Regexp is safe for concurrent use by multiple goroutines,\nexcept for configuration methods, such as Longest.",
-   "title": "Regexp is the representation of a compiled regular expression.",
    "type": "object"
   },
   "RelativeTimeRange": {
@@ -4123,6 +4128,7 @@
    "type": "object"
   },
   "alertGroup": {
+   "description": "AlertGroup alert group",
    "properties": {
     "alerts": {
      "description": "alerts",
@@ -4146,7 +4152,6 @@
    "type": "object"
   },
   "alertGroups": {
-   "description": "AlertGroups alert groups",
    "items": {
     "$ref": "#/definitions/alertGroup"
    },
@@ -4251,7 +4256,6 @@
    "type": "object"
   },
   "gettableAlert": {
-   "description": "GettableAlert gettable alert",
    "properties": {
     "annotations": {
      "$ref": "#/definitions/labelSet"
@@ -4307,14 +4311,12 @@
    "type": "object"
   },
   "gettableAlerts": {
-   "description": "GettableAlerts gettable alerts",
    "items": {
     "$ref": "#/definitions/gettableAlert"
    },
    "type": "array"
   },
   "gettableSilence": {
-   "description": "GettableSilence gettable silence",
    "properties": {
     "comment": {
      "description": "comment",
@@ -4363,6 +4365,7 @@
    "type": "object"
   },
   "gettableSilences": {
+   "description": "GettableSilences gettable silences",
    "items": {
     "$ref": "#/definitions/gettableSilence"
    },
